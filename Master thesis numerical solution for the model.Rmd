@@ -64,7 +64,7 @@ grid.arrange(plot1, plot2,plot3,plot4,nrow=2, ncol=2, bottom = textGrob("Figure 
 
 #This figure shows correlation between rookie member's optimal threshold (c*=mu_x+z*) and the midpoint of senior members' ideal policy positions.
 
-ggplot(Equi_policy, aes(x=mu_x+ ave_b)) + geom_point(aes(y= mu_x+z_star))+geom_smooth(mapping =aes(x=mu_x+ave_b, y=mu_x+z_star,color = "lm fiting") ,method = "lm") + theme(legend.position = "right")+scale_colour_manual("", breaks = c("lm fiting", "c_star"), values = c("green", "blue"))  + labs(title="Figure 2. Correlation of optimal threshold of rookie member and average ideoligy of senior members")
+ggplot(Equi_policy, aes(x=mu_x+ ave_b)) + geom_point(aes(y= mu_x+z_star))+geom_smooth(mapping =aes(x=mu_x+ave_b, y=mu_x+z_star,color = "lm fiting") ,method = "lm") + theme(legend.position = "right")+scale_colour_manual("", breaks = c("lm fiting", "c_star"), values = c("green", "blue"))  + labs(title="Figure 2. Correlation of optimal threshold of rookie member and average senior members' ideologies") +labs(x= "Average senior members' ideologies", y = "C*")
 
 
 
@@ -111,7 +111,7 @@ Equi_policy_2<-filter(policy_2,zstar_low>0,zhigh_star>0)
 
 ##This figure shows correlation between rookie member's optimal threshold (c*=mu_x+z*) and the midpoint of senior members' ideal policy positions, in contrast to Figure 2.
 
-ggplot(Equi_policy_2, aes(x=mu_x+ave_b)) + geom_point(aes(y= mu_x+z_star))+geom_smooth(mapping =aes(x=mu_x+ave_b, y=mu_x+z_star,color = "lm fiting") ,method = "lm") + theme(legend.position = "right")+scale_colour_manual("", breaks = c("lm fiting", "c_star"), values = c("green", "blue")) + labs(title="Figure 3. Correlation of optimal threshold of rookie member and average ideology of symmetric senior members")
+ggplot(Equi_policy_2, aes(x=mu_x+ave_b)) + geom_point(aes(y= mu_x+z_star))+geom_smooth(mapping =aes(x=mu_x+ave_b, y=mu_x+z_star,color = "lm fiting") ,method = "lm") + theme(legend.position = "right")+scale_colour_manual("", breaks = c("lm fiting", "c_star"), values = c("green", "blue")) + labs(title="Figure 3. Correlation of optimal threshold of rookie member and average senior members' ideologies") +labs(x= "Average senior members' ideologies", y = "C*")
 
 
 
@@ -121,7 +121,8 @@ ggplot(Equi_policy_2, aes(x=mu_x+ave_b)) + geom_point(aes(y= mu_x+z_star))+geom_
 
 #Numerical illustration for Table 1
 
-ggplot(Equi_policy_2, aes(x=ave_b)) + geom_jitter(aes(y=z_star,width = 10,color="z_star"))+ geom_line(aes(y= ave_b, color="Average_b"), size = 0.5) + geom_line(aes(y= 0.5), color="yellow", size = 1.0)+ facet_grid(cols = vars(Alp_group), rows = vars(Bias_group))+ theme(legend.position = "right")+scale_colour_manual("", breaks = c("Average_b", "z_star"), values = c("green", "blue"))  + labs(title="Figure 4. Numerical illustration for Table 1")
+ggplot(Equi_policy_2, aes(x=ave_b)) + geom_jitter(aes(y=z_star,width = 10,color="z_star"))+ geom_line(aes(y= ave_b, color="(b1+b2)/2"), size = 0.5) + geom_line(aes(y= 0.5), color="yellow", size = 1.0)+ facet_grid(cols = vars(Alp_group), rows = vars(Bias_group))+ theme(legend.position = "right")+scale_colour_manual("", breaks = c("(b1+b2)/2", "z_star"), values = c("green", "blue"))  + labs(title="Figure 4. Numerical illustration for Table 1")+labs(x= "(b1+b2)/2", y = "Z*")
+
 
 
 ```
